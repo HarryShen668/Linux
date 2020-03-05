@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<sys/types.h>
+#include<unistd.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+int main(int argc, char* argv[]) {
+    int fd1, fd2;
+    int fsize=5;
+    int i;
+    char* buffer;
+    if (argc != 3) {
+        printf("Error:parameter wrong!\n");
+        exit(1);
+    }
+    fd1 = open(argv[1], O_RDONLY);
+    if (fd1 < 0) {
+        printf("Error:can't open the read-file!\n");
+        exit(1);
+    }
+    fd2 = open(argv[2], O_RDWR | O_CREAT);
+    if (fd2 < 0) {
+        printf("Error:can't open the file!\n");
+        exit(1);
+    }
+    do
+    {
+        i = read(fd1, buffer, fsize);
+        write(fd2, buffer, i);
+    } while (i == fsize);
+    close(fd1);
+    close(fd2);
+    free(buffer);
+    return 0;
+}
