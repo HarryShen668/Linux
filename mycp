@@ -8,7 +8,7 @@
 int main(int argc, char* argv[]) {
     int fd1, fd2;
     int i;
-    char* buffer;
+    char buffer[fsize] ;
     if (argc != 3) {
         printf("Error:parameter wrong!\n");
         exit(1);
