@@ -4,9 +4,9 @@
 #include<unistd.h>
 #include<sys/stat.h>
 #include<fcntl.h>
+#define fsize 5
 int main(int argc, char* argv[]) {
     int fd1, fd2;
-    int fsize=5000;
     int i;
     char* buffer;
     if (argc != 3) {
