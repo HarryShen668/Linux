@@ -6,7 +6,7 @@
 #include<fcntl.h>
 int main(int argc, char* argv[]) {
     int fd1, fd2;
-    int fsize=5;
+    int fsize=5000;
     int i;
     char* buffer;
     if (argc != 3) {
