@@ -23,11 +23,11 @@ int main(int argc, char* argv[]) {
         printf("Error:can't open the file!\n");
         exit(1);
     }
-    do
-    {
+    
+    while (1){
         i = read(fd1, buffer, fsize);
         write(fd2, buffer, i);
-    } while (i == fsize);
+     if(i!=fsize)break;}
     close(fd1);
     close(fd2);
     free(buffer);
